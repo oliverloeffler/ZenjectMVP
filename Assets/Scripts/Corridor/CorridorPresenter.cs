@@ -8,11 +8,14 @@ namespace Corridor
 {
     public class CorridorPresenter : MonoBehaviour, IInitializable, IDisposable
     {
-        [SerializeField] private Text _level;
+        [SerializeField]
+        private Text _level;
 
-        [SerializeField] private Button _upgradeLevelButton;
+        [SerializeField]
+        private Button _upgradeLevelButton;
 
-        [SerializeField] private Image _levelImage;
+        [SerializeField]
+        private Image _levelImage;
 
         private CorridorModel _corridorModel;
         private CorridorController _corridorController;
@@ -51,8 +54,10 @@ namespace Corridor
 
         public void Dispose()
         {
-            if (_disposer != null) 
+            if (_disposer != null)
+            {
                 _disposer.Dispose();
+            }
         }
     }
 }

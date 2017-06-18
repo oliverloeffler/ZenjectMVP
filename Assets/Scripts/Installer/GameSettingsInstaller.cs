@@ -9,7 +9,7 @@ namespace Installer
     {
         public CorridorViewData CorridorView;
         public GameInstaller.Prefabs Prefabs;
-        
+
         public override void InstallBindings()
         {
             Container.BindInstance<ICorridorViewData>(CorridorView);

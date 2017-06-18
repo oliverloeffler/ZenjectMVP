@@ -7,10 +7,9 @@ namespace Installer
 {
     public class GameInstaller : MonoInstaller
     {
-
-        [Inject] 
+        [Inject]
         private Prefabs _prefabs;
-        
+
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<CorridorModel>().AsSingle();
@@ -26,8 +25,5 @@ namespace Installer
         {
             public GameObject CorridorPrefab;
         }
-
-
-
     }
 }

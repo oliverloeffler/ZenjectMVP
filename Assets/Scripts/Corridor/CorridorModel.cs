@@ -17,7 +17,10 @@ namespace Corridor
 
         public void Dispose()
         {
-            if (_disposer != null) _disposer.Dispose();
+            if (_disposer != null)
+            {
+                _disposer.Dispose();
+            }
         }
     }
 }

@@ -13,8 +13,11 @@ namespace Corridor
         
         public CorridorController([NotNull] CorridorModel corridorModel)
         {
-            if (corridorModel == null) 
+            if (corridorModel == null)
+            {
                 throw new ArgumentNullException("corridorModel");
+            }
+            
             _corridorModel = corridorModel;
             _disposer = new CompositeDisposable();
         }
@@ -37,7 +40,9 @@ namespace Corridor
         public void Dispose()
         {
            if(_disposer != null)
+           {
                _disposer.Dispose();
+           }
         }
     }
 }
