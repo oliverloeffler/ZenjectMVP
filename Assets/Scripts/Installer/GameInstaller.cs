@@ -12,6 +12,7 @@ namespace Installer
 
         public override void InstallBindings()
         {
+            Container.BindInterfacesAndSelfTo<CorridorData>().AsSingle();
             Container.BindInterfacesAndSelfTo<CorridorModel>().AsSingle();
             Container.BindInterfacesAndSelfTo<CorridorController>().AsSingle();
             Container.BindInterfacesAndSelfTo<CorridorPresenter>()
