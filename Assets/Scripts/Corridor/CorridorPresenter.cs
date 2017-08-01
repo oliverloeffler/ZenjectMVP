@@ -30,11 +30,11 @@ namespace Corridor
             _corridorModel = corridorModel;
             _corridorController = corridorController;
             _corridorViewData = corridorViewData;
+            _disposer = new CompositeDisposable();
         }
 
         public void Initialize()
         {
-            _disposer = new CompositeDisposable();
             _corridorModel.Level.SubscribeToText(_level).AddTo(_disposer);
             _corridorModel.Level.Subscribe(SetLevelSprite).AddTo(_disposer);
             _corridorController.UpgradeLevel.BindTo(_upgradeLevelButton).AddTo(_disposer);

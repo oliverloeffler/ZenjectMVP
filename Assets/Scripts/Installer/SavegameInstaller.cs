@@ -15,6 +15,7 @@ namespace Installer
             Container.BindInterfacesAndSelfTo<SavegameSaver>().AsSingle();
             Container.BindInterfacesAndSelfTo<SavegameLoader>().AsSingle();
             Container.BindInterfacesAndSelfTo<NewSavegameCreator>().AsSingle();
+            
             Container.Bind<SavegameModel>().FromFactory<SavegameFactory>().AsSingle();
             Container.Bind<CorridorSavegame>().FromResolveGetter<SavegameModel>(model => model.CorridorSavegame);
         }

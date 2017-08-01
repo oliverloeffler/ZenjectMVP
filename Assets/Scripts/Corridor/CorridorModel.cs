@@ -17,7 +17,7 @@ namespace Corridor
             get { return _corridorData.MaxLevel; }
         }
 
-        private readonly CompositeDisposable _disposer;
+        private readonly CompositeDisposable _disposer = new CompositeDisposable();
 
         public CorridorModel([NotNull] ICorridorData corridorData, [NotNull] CorridorSavegame savegameModel)
         {
@@ -30,7 +30,6 @@ namespace Corridor
                 throw new ArgumentNullException("savegameModel");
             }
             
-            _disposer = new CompositeDisposable();
             _savegameModel = savegameModel;
             _corridorData = corridorData;
             Level = new ReactiveProperty<int>(_savegameModel.Level).AddTo(_disposer);

@@ -9,7 +9,7 @@ namespace Corridor
     {
         public ReactiveCommand UpgradeLevel { get; private set; }
         private readonly CorridorModel _corridorModel;
-        private readonly CompositeDisposable _disposer;
+        private readonly CompositeDisposable _disposer = new CompositeDisposable();
         
         public CorridorController([NotNull] CorridorModel corridorModel)
         {
@@ -19,7 +19,6 @@ namespace Corridor
             }
             
             _corridorModel = corridorModel;
-            _disposer = new CompositeDisposable();
         }
         
         public void Initialize()

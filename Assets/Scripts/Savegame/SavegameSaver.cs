@@ -13,7 +13,7 @@ namespace Savegame
         private readonly SavegameModel _savegame;
         private readonly string _savePath;
         private readonly TimeSpan _saveInterval;
-        private readonly CompositeDisposable _disposer;
+        private readonly CompositeDisposable _disposer = new CompositeDisposable();
         private readonly BinaryFormatter _binaryFormatter = new BinaryFormatter();
 
         public SavegameSaver(SavegameModel savegame,
@@ -32,7 +32,6 @@ namespace Savegame
             _savegame = savegame;
             _savePath = savePath;
             _saveInterval = saveInterval;
-            _disposer = new CompositeDisposable();
         }
 
         public void Initialize()
