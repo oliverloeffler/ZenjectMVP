@@ -14,9 +14,9 @@ namespace Savegame
     {
         private readonly string _savePath;
 
-        public SavegameLoader(string savePath)
+        public SavegameLoader([Inject(Id = "SavePath")] string savePath)
         {
-            _savePath = savePath; 
+            _savePath = savePath;
         }
 
         public bool IsSavegameFileExistent()
@@ -28,15 +28,15 @@ namespace Savegame
         {
             if (!File.Exists(_savePath))
             {
-               throw new IOException("Couldn't access savegame path: " + _savePath);
+                throw new IOException("Couldn't access savegame path: " + _savePath);
             }
-            
+
             var bf = new BinaryFormatter();
             var file = File.Open(_savePath, FileMode.Open);
-            
+
             var savegame = (SavegameModel) bf.Deserialize(file);
             file.Close();
-            
+
             return savegame;
         }
     }

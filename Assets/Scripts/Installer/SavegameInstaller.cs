@@ -8,8 +8,8 @@ namespace Installer
     {
         public override void InstallBindings()
         {
-            Container.BindInstance(SavegameConfig.SavePath).AsSingle();
-            Container.BindInstance(SavegameConfig.SaveInterval).AsSingle();
+            Container.Bind<string>().WithId("SavePath").FromInstance(SavegameConfig.SavePath);
+            Container.Bind<TimeSpan>().WithId("SaveInterval").FromInstance(SavegameConfig.SaveInterval);
 
             Container.BindInterfacesAndSelfTo<SavegameSaver>().AsSingle();
             Container.BindInterfacesAndSelfTo<SavegameLoader>().AsSingle();

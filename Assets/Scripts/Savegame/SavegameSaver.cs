@@ -13,7 +13,9 @@ namespace Savegame
         private readonly string _savePath;
         private readonly TimeSpan _saveInterval;
 
-        public SavegameSaver(SavegameModel savegame, string savePath, TimeSpan saveInterval)
+        public SavegameSaver(SavegameModel savegame,
+            [Inject(Id = "SavePath")] string savePath,
+            [Inject(Id = "SaveInterval")] TimeSpan saveInterval)
         {
             if (savegame == null)
             {
