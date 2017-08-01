@@ -1,15 +1,10 @@
 ﻿using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Savegame.Model;
 using Zenject;
 
 namespace Savegame
 {
-    public interface ISavegameLoader
-    {
-        SavegameModel LoadSavegame();
-        bool IsSavegameFileExistent();
-    }
-
     public class SavegameLoader : ISavegameLoader
     {
         private readonly string _savePath;

@@ -1,5 +1,6 @@
 ﻿using System;
 using Savegame;
+using Savegame.Model;
 using Zenject;
 
 namespace Installer

@@ -1,6 +1,7 @@
 ﻿using System;
 using JetBrains.Annotations;
 using Savegame;
+using Savegame.Model;
 using UniRx;
 
 namespace Corridor

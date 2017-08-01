@@ -1,4 +1,6 @@
-﻿namespace Savegame
+﻿using Savegame.Model;
+
+namespace Savegame
 {
     public class NewSavegameCreator
     {

@@ -1,5 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
+using Savegame.Model;
 using UnityEngine;
 using Zenject;
 
