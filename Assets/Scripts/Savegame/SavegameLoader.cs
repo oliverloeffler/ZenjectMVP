@@ -8,6 +8,7 @@ namespace Savegame
     public class SavegameLoader : ISavegameLoader
     {
         private readonly string _savePath;
+        private readonly BinaryFormatter _binaryFormatter = new BinaryFormatter();
 
         public SavegameLoader([Inject(Id = "SavePath")] string savePath)
         {
@@ -26,10 +27,9 @@ namespace Savegame
                 throw new IOException("Couldn't access savegame path: " + _savePath);
             }
 
-            var bf = new BinaryFormatter();
             var file = File.Open(_savePath, FileMode.Open);
 
-            var savegame = (SavegameModel) bf.Deserialize(file);
+            var savegame = (SavegameModel) _binaryFormatter.Deserialize(file);
             file.Close();
 
             return savegame;

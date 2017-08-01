@@ -14,6 +14,7 @@ namespace Savegame
         private readonly string _savePath;
         private readonly TimeSpan _saveInterval;
         private readonly CompositeDisposable _disposer;
+        private readonly BinaryFormatter _binaryFormatter = new BinaryFormatter();
 
         public SavegameSaver(SavegameModel savegame,
             [Inject(Id = "SavePath")] string savePath,
@@ -60,9 +61,8 @@ namespace Savegame
         private void SaveToDisk()
         {
             Debug.Log("Writing savegame file to disk..");
-            var bf = new BinaryFormatter();
             var stream = File.Create(_savePath);
-            bf.Serialize(stream, _savegame);
+            _binaryFormatter.Serialize(stream, _savegame);
             stream.Close();
         }
 
