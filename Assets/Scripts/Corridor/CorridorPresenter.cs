@@ -6,7 +6,7 @@ using Zenject;
 
 namespace Corridor
 {
-    public class CorridorPresenter : MonoBehaviour, IInitializable, IDisposable
+    public class CorridorPresenter : MonoBehaviour, IDisposable
     {
         [SerializeField]
         private Text _level;
@@ -31,6 +31,7 @@ namespace Corridor
             _corridorController = corridorController;
             _corridorViewData = corridorViewData;
             _disposer = new CompositeDisposable();
+            Initialize();
         }
 
         public void Initialize()
@@ -58,6 +59,12 @@ namespace Corridor
             {
                 _disposer.Dispose();
             }
+        }
+
+
+        public class Factory : Factory<CorridorPresenter>
+        {
+            
         }
     }
 }

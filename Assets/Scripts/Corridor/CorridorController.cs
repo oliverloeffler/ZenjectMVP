@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Corridor
 {
-    public class CorridorController : IInitializable, IDisposable
+    public class CorridorController : IDisposable
     {
         public ReactiveCommand UpgradeLevel { get; private set; }
         private readonly CorridorModel _corridorModel;
@@ -19,6 +19,7 @@ namespace Corridor
             }
             
             _corridorModel = corridorModel;
+            Initialize();
         }
         
         public void Initialize()

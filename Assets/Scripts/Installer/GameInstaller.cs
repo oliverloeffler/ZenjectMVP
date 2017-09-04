@@ -1,5 +1,6 @@
 ﻿using System;
 using Corridor;
+using Mine;
 using UnityEngine;
 using Zenject;
 
@@ -12,13 +13,11 @@ namespace Installer
 
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<CorridorData>().AsSingle();
-            Container.BindInterfacesAndSelfTo<CorridorModel>().AsSingle();
-            Container.BindInterfacesAndSelfTo<CorridorController>().AsSingle();
-            Container.BindInterfacesAndSelfTo<CorridorPresenter>()
-                .FromComponentInNewPrefab(_prefabs.CorridorPrefab)
-                .UnderTransformGroup("Canvas")
-                .AsSingle();
+            Container.BindInterfacesAndSelfTo<MineController>().AsSingle().NonLazy();
+            Container.BindFactory<CorridorPresenter, CorridorPresenter.Factory>()
+                .FromSubContainerResolve()
+                .ByNewPrefab(_prefabs.CorridorPrefab)
+                .UnderTransformGroup("Canvas");
         }
 
         [Serializable]

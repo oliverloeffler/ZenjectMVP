@@ -18,6 +18,7 @@ namespace Installer
             
             Container.Bind<SavegameModel>().FromFactory<SavegameFactory>().AsSingle();
             Container.Bind<CorridorSavegame>().FromResolveGetter<SavegameModel>(model => model.CorridorSavegame);
+            Container.Bind<MineSavegame>().FromResolveGetter<SavegameModel>(model => model.MineSavegame);
         }
     }
 }
